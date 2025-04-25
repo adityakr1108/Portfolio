@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 25% 10%;
+    --foreground: 210 40% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 260 78% 75%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 194 76% 49%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-dark-100 text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glow-text {
+    @apply relative inline-block;
+  }
+
+  .glow-text::after {
+    content: "";
+    @apply absolute -inset-1 rounded-lg bg-green-200/20 blur-md -z-10;
+    animation: pulse 2s ease-in-out infinite alternate;
+  }
+
+  .gradient-heading {
+    @apply bg-gradient-to-r from-green-100 to-green-300 bg-clip-text text-transparent;
+  }
+
+  .nav-link {
+    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors hover:bg-white/10 hover:text-white;
+  }
+
+  .nav-link-active {
+    @apply bg-green-200/10 text-white;
+  }
+
+  .filter-btn {
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all;
+  }
+
+  .filter-btn-active {
+    @apply bg-green-200 text-white shadow-lg shadow-green-200/40;
+  }
+
+  .card-container {
+    @apply relative overflow-hidden rounded-xl bg-dark-200 p-6 shadow-xl shadow-black/5 transition-all duration-300 hover:shadow-2xl hover:shadow-green-200/10 hover:-translate-y-1;
+  }
+
+  .card-container::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-green-200/10 to-green-300/10 opacity-0 transition-opacity duration-300;
+  }
+
+  .card-container:hover::before {
+    @apply opacity-100;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: pulse-grid 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse-grid {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  /* Remove code rain related styles */
+}
+
+@keyframes code-flow {
+  0% {
+    transform: translateY(-66.67%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes flow-upward {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+.data-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(180deg, #64B5F6 0%, #2196F3 100%);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: flow-upward linear infinite;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+}
+
+.data-flow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+}
