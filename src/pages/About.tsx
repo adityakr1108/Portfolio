@@ -77,10 +77,9 @@ const About = () => {
             </p>
             <Link
                 to="/contact"
-                className="px-6 py-3 bg-transparent border border-white/20 hover:bg-white/10 
-                text-white font-medium rounded-lg transition-colors animate-fade-in"
+                className="inline-block px-6 py-3 bg-green-200 hover:bg-green-300 text-dark-100 font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-200/20"
               >
-                Contact Me
+                Get In Touch
               </Link>
           </div>
         </div>
