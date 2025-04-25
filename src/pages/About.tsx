@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { skills } from '../data/skills';
 import CodeRain from '../components/CodeRain';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   useEffect(() => {
@@ -74,12 +75,13 @@ const About = () => {
             <p className="text-gray-300 mb-6">
               I'm always open to discussing new projects, opportunities, or partnerships.
             </p>
-            <a 
-              href="/contact" 
-              className="inline-block px-6 py-3 bg-green-200 hover:bg-green-300 text-dark-100 font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-200/20"
-            >
-              Get In Touch
-            </a>
+            <Link
+                to="/contact"
+                className="px-6 py-3 bg-transparent border border-white/20 hover:bg-white/10 
+                text-white font-medium rounded-lg transition-colors animate-fade-in"
+              >
+                Contact Me
+              </Link>
           </div>
         </div>
       </div>
